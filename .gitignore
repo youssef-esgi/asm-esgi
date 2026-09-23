@@ -1,0 +1,5 @@
+*.o
+exercices/*/somme
+exercices/**/tests/*.actual
+.DS_Store
+solutions/
