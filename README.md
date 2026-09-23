@@ -2,6 +2,10 @@
 
 Dépôt : https://github.com/youssef-esgi/asm-esgi · Image Docker : `youssefesgi/asm-esgi`
 
+📄 **Guide du TP 1 en PDF** : [docs/TP1-Environnement-Premier-Programme-ESGI.pdf](docs/TP1-Environnement-Premier-Programme-ESGI.pdf)
+Installation pas à pas, convention d'appel cdecl, exercice 1 détaillé, aide-mémoire gdb.
+Les commandes se copient plus facilement depuis ce README que depuis le PDF.
+
 Un seul environnement pour tout le monde, **Mac (Intel ou Apple Silicon), PC Windows, Linux** :
 l'image Docker `youssefesgi/asm-esgi` contient `nasm`, `gcc` 32 bits, `gdb` et `make`.
 Elle existe en deux variantes choisies automatiquement par Docker :
@@ -11,6 +15,12 @@ Elle existe en deux variantes choisies automatiquement par Docker :
   débogage par le stub gdb de qemu. Aucune émulation lente de tout le conteneur.
 
 Les commandes `make`, `make run`, `make test`, `make debug` sont identiques partout.
+
+> **L'installation se fait en classe**, au début de la première séance, avec l'enseignant.
+> N'installez rien seul chez vous : en cas de blocage, vous perdriez du temps sans aide.
+> Une seule chose à préparer avant de venir : créer un compte gratuit sur
+> [hub.docker.com](https://hub.docker.com). Sans compte, le téléchargement de l'image
+> échoue pour une partie du groupe, toute la classe partageant la même adresse IP.
 
 ## Option A — GitHub Codespaces (recommandée, rien à installer)
 

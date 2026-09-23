@@ -1,6 +1,11 @@
 # Installation sur Windows (PC)
 
-Durée : 15 à 30 minutes, dont un ou deux redémarrages. À faire **avant** la première séance de TD.
+Durée : 15 à 30 minutes, dont un ou deux redémarrages.
+
+**L'installation se fait en classe**, au début de la première séance, avec l'enseignant. N'installez rien seul chez vous : en cas de blocage, vous perdriez du temps sans aide. Ce document est le pas à pas que nous suivrons ensemble, et il vous servira ensuite de référence.
+
+Une seule chose à préparer avant de venir : créer un compte Docker Hub gratuit (§ 6).
+
 Si votre PC refuse Docker (voir *Dépannage*), utilisez l'option GitHub Codespaces décrite dans le README : rien à installer.
 
 ## 1. Prérequis : Windows 10 (21H2 ou plus) ou Windows 11, 64 bits
