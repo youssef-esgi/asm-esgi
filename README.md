@@ -26,7 +26,9 @@ Gratuit 60 h/mois (90 h avec le GitHub Student Pack). Pensez à arrêter le code
 2. Cloner ce dépôt, puis dans son dossier (l'image est téléchargée au premier lancement, ~150 Mo) :
 
 ```
-./dev.sh                 # ouvre un shell Linux x86 dans le conteneur
+git clone https://github.com/youssef-esgi/asm-esgi.git
+cd asm-esgi
+./dev.sh                 # ouvre un shell Linux dans le conteneur
 cd exercices/ex01-somme-tableau
 make test
 ```
@@ -50,7 +52,6 @@ tools/run-tests.sh       compare la sortie du programme aux fichiers tests/*.out
 tools/check-env.sh       diagnostic de l'environnement (make check)
 INSTALL-WINDOWS.md       installation pas à pas sur PC Windows
 exercices/exNN-.../      un dossier par exercice : main.c fourni, .asm à compléter, tests/
-solutions/               corrigés enseignant (retirer avant distribution)
 ```
 
 ## Conventions du cours
