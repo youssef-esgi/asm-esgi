@@ -128,16 +128,3 @@ gdb-multiarch -ex 'set architecture i386' -ex 'target remote localhost:1234' ./s
 (gdb) break somme_tableau
 (gdb) continue
 ```
-
-## Enseignant : reconstruire et publier l'image
-
-```
-docker buildx create --name mybuilder --use     # une seule fois
-docker buildx build --platform linux/amd64,linux/arm64 -t youssefesgi/asm-esgi:latest --push .
-```
-
-## Ajouter un exercice
-
-1. Copier `exercices/ex01-somme-tableau` vers `exercices/ex02-...`.
-2. Adapter `PROG`, `ASM`, `CSRC` dans le `Makefile`.
-3. Écrire les couples `tests/NOM.in` / `tests/NOM.out`.
