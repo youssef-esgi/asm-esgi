@@ -1,4 +1,6 @@
-# Exercice 05 — Afficher
+# Exercice 05 — Afficher (bonus)
+
+*À faire une fois que les exercices 00 à 04 passent tous leurs tests.*
 
 **Objectif** : écrire la fonction `afficher` dans `afficher.asm`. Elle écrit les octets de
 `texte` à l'écran par l'appel système `write` (`int 0x80`), sans `printf`.

@@ -7,8 +7,8 @@ Cinq exercices progressifs dans `exercices/tp1/`, le code à écrire est fourni 
 À imprimer et garder sous la main : la [fiche réflexe](docs/Fiche-Reflexe-ASM-ESGI.pdf) (une page).
 
 📄 **TP 2 — Chaînes, octets et appels** : [docs/TP2-Chaines-Octets-Appels-ESGI.pdf](docs/TP2-Chaines-Octets-Appels-ESGI.pdf)
-Six exercices dans `exercices/tp2-chaines/`, même format que le TP 1 : octets et caractères, longueur d'une chaîne,
-`call`, appel système `int 0x80`.
+Cinq exercices et un bonus dans `exercices/tp2-chaines/`, même format que le TP 1 : octets et caractères,
+longueur d'une chaîne, `call`, et en bonus l'appel système `int 0x80`.
 📄 **Fiche débogueur** : [docs/Fiche-Debogueur-GDB-ESGI.pdf](docs/Fiche-Debogueur-GDB-ESGI.pdf), toutes les commandes gdb du cours,
 et l'équivalent gdb de chaque instruction.
 
