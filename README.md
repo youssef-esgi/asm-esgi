@@ -6,8 +6,14 @@ Dépôt : https://github.com/youssef-esgi/asm-esgi · Image Docker : `youssefesg
 Cinq exercices progressifs dans `exercices/tp1/`, le code à écrire est fourni et expliqué ligne à ligne.
 À imprimer et garder sous la main : la [fiche réflexe](docs/Fiche-Reflexe-ASM-ESGI.pdf) (une page).
 
+📄 **TP 2 — Chaînes, octets et appels** : [docs/TP2-Chaines-Octets-Appels-ESGI.pdf](docs/TP2-Chaines-Octets-Appels-ESGI.pdf)
+Six exercices dans `exercices/tp2-chaines/`, même format que le TP 1 : octets et caractères, longueur d'une chaîne,
+`call`, appel système `int 0x80`.
+📄 **Fiche débogueur** : [docs/Fiche-Debogueur-GDB-ESGI.pdf](docs/Fiche-Debogueur-GDB-ESGI.pdf), toutes les commandes gdb du cours,
+et l'équivalent gdb de chaque instruction.
+
 📄 **Installation et environnement** : [docs/TP1-Environnement-Premier-Programme-ESGI.pdf](docs/TP1-Environnement-Premier-Programme-ESGI.pdf)
-Installation pas à pas, aide-mémoire gdb, convention d'appel cdecl (utile pour `exercices/tp2-fonctions/`).
+Installation pas à pas, aide-mémoire gdb, convention d'appel cdecl (utile pour `exercices/tp3-fonctions/`).
 Les commandes se copient plus facilement depuis ce README que depuis les PDF.
 
 Un seul environnement pour tout le monde, **Mac (Intel ou Apple Silicon), PC Windows, Linux** :
@@ -66,7 +72,8 @@ tools/run-tests.sh       compare la sortie du programme aux fichiers tests/*.out
 tools/check-env.sh       diagnostic de l'environnement (make check)
 INSTALL-WINDOWS.md       installation pas à pas sur PC Windows
 exercices/tp1/exNN-.../  TP 1 : main.c fourni, .asm à compléter, corrige.asm, tests/
-exercices/tp2-fonctions/ TP 2 : fonctions avec arguments sur la pile (convention cdecl)
+exercices/tp2-chaines/   TP 2 : chaînes de caractères, octets, call, appel système
+exercices/tp3-fonctions/ TP 3 : fonctions avec arguments sur la pile (convention cdecl)
 ```
 
 ## Conventions du cours
