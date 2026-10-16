@@ -4,3 +4,4 @@ exercices/**/ex0[0-9]
 exercices/**/tests/*.actual
 .DS_Store
 solutions/
+*ENSEIGNANT*.pdf
