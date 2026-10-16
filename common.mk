@@ -2,6 +2,9 @@
 #   make          compile l'exécutable (x86 32 bits, lié statiquement)
 #   make run      compile puis exécute (entrée clavier)
 #   make test     compile puis lance les tests de tests/*.in contre tests/*.out
+#   make trace    compile puis exécute en affichant, instruction par instruction, l'état des
+#                 registres dans chaque fonction du .asm (tableau comme en TD)
+#                 ex : make trace IN=tests/02-grand.in      make trace HEX=1      make trace FUNCS=produit
 #   make debug    compile puis ouvre gdb, arrêté à l'entrée de la fonction BREAK,
 #                 avec le fichier IN sur l'entrée standard (défaut : premier tests/*.in)
 #                 ex : make debug BREAK=somme_tableau IN=tests/03-negatifs.in
@@ -13,6 +16,7 @@
 #   ASM    fichiers .asm de l'élève
 #   CSRC   fichiers .c fournis (entrées/sorties)
 #   BREAK  (optionnel) symbole où gdb s'arrête (défaut : premier symbole global de ASM)
+#   FUNCS  (optionnel) fonctions suivies par make trace (défaut : tous les symboles globaux de ASM)
 #
 # Portabilité : sur une machine x86_64 tout est natif ; sur arm64 (Mac Apple Silicon)
 # on compile avec gcc croisé, on exécute avec qemu-i386 et on débogue via son stub gdb.
@@ -34,11 +38,14 @@ LDFLAGS    = -m32 -static -no-pie -Wl,-z,noexecstack
 
 ROOT   := $(dir $(lastword $(MAKEFILE_LIST)))
 OBJ    := $(ASM:.asm=.o) $(CSRC:.c=.o)
-BREAK  ?= $(shell grep -h -m1 -E '^\s*global\s+' $(ASM) | awk '{print $$2}')
+GLOBALS := $(shell grep -h -E '^\s*global\s+' $(ASM) | sed -E 's/^\s*global\s+//; s/,/ /g')
+BREAK  ?= $(firstword $(GLOBALS))
+FUNCS  ?= $(GLOBALS)
+HEX    ?=
 IN     ?= $(firstword $(wildcard tests/*.in))
 GDBPORT ?= 1234
 
-.PHONY: all run test debug clean check
+.PHONY: all run test trace debug clean check
 
 all: $(PROG)
 
@@ -56,6 +63,10 @@ run: $(PROG)
 
 test: $(PROG)
 	@RUNNER="$(RUNNER)" $(ROOT)tools/run-tests.sh ./$(PROG) tests
+
+trace: $(PROG)
+	@GDB="$(GDB)" RUNNER="$(RUNNER)" GDBPORT="$(GDBPORT)" TRACE_FUNCS="$(FUNCS)" \
+	 TRACE_IN="$(IN)" TRACE_HEX="$(HEX)" $(ROOT)tools/trace.sh ./$(PROG)
 
 ifeq ($(ARCH),x86_64)
 debug: $(PROG)

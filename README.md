@@ -2,9 +2,13 @@
 
 Dépôt : https://github.com/youssef-esgi/asm-esgi · Image Docker : `youssefesgi/asm-esgi`
 
-📄 **Guide du TP 1 en PDF** : [docs/TP1-Environnement-Premier-Programme-ESGI.pdf](docs/TP1-Environnement-Premier-Programme-ESGI.pdf)
-Installation pas à pas, convention d'appel cdecl, exercice 1 détaillé, aide-mémoire gdb.
-Les commandes se copient plus facilement depuis ce README que depuis le PDF.
+📄 **TP 1 — Premiers pas** : [docs/TP1-Premiers-Pas-ESGI.pdf](docs/TP1-Premiers-Pas-ESGI.pdf)
+Cinq exercices progressifs dans `exercices/tp1/`, le code à écrire est fourni et expliqué ligne à ligne.
+À imprimer et garder sous la main : la [fiche réflexe](docs/Fiche-Reflexe-ASM-ESGI.pdf) (une page).
+
+📄 **Installation et environnement** : [docs/TP1-Environnement-Premier-Programme-ESGI.pdf](docs/TP1-Environnement-Premier-Programme-ESGI.pdf)
+Installation pas à pas, aide-mémoire gdb, convention d'appel cdecl (utile pour `exercices/tp2-fonctions/`).
+Les commandes se copient plus facilement depuis ce README que depuis les PDF.
 
 Un seul environnement pour tout le monde, **Mac (Intel ou Apple Silicon), PC Windows, Linux** :
 l'image Docker `youssefesgi/asm-esgi` contient `nasm`, `gcc` 32 bits, `gdb` et `make`.
@@ -26,7 +30,7 @@ Les commandes `make`, `make run`, `make test`, `make debug` sont identiques part
 
 1. Sur GitHub, bouton **Code → Codespaces → Create codespace**.
 2. Attendre l'ouverture de VS Code dans le navigateur (l'image se construit la première fois, ~2 min).
-3. Dans le terminal : `cd exercices/ex01-somme-tableau && make check` puis `make test`.
+3. Dans le terminal : `cd exercices/tp1/ex00-observer && make check` puis `make test`.
 
 Gratuit 60 h/mois (90 h avec le GitHub Student Pack). Pensez à arrêter le codespace quand vous avez fini.
 
@@ -39,7 +43,7 @@ Gratuit 60 h/mois (90 h avec le GitHub Student Pack). Pensez à arrêter le code
 git clone https://github.com/youssef-esgi/asm-esgi.git
 cd asm-esgi
 ./dev.sh                 # ouvre un shell Linux dans le conteneur
-cd exercices/ex01-somme-tableau
+cd exercices/tp1/ex00-observer
 make test
 ```
 
@@ -61,7 +65,8 @@ common.mk                règles make partagées (make / run / test / debug / cl
 tools/run-tests.sh       compare la sortie du programme aux fichiers tests/*.out
 tools/check-env.sh       diagnostic de l'environnement (make check)
 INSTALL-WINDOWS.md       installation pas à pas sur PC Windows
-exercices/exNN-.../      un dossier par exercice : main.c fourni, .asm à compléter, tests/
+exercices/tp1/exNN-.../  TP 1 : main.c fourni, .asm à compléter, corrige.asm, tests/
+exercices/tp2-fonctions/ TP 2 : fonctions avec arguments sur la pile (convention cdecl)
 ```
 
 ## Conventions du cours
@@ -82,6 +87,18 @@ make check
 
 Le script affiche l'architecture, les versions des outils, compile et exécute un programme minimal.
 Si la dernière ligne n'est pas *Environnement prêt*, envoyez la sortie complète à l'enseignant.
+
+## Suivre l'exécution : `make trace`
+
+```
+make trace                        # chaque fonction du .asm, instruction par instruction
+make trace IN=tests/03-zero.in    # avec une autre entrée
+make trace HEX=1                  # registres en hexadécimal
+make trace FUNCS=produit          # une seule fonction
+```
+
+Affiche, après chaque instruction exécutée, la valeur de `eax ebx ecx edx esi` :
+le même tableau que dans les TD sur papier. Aucune commande gdb à connaître.
 
 ## Déboguer avec gdb
 
